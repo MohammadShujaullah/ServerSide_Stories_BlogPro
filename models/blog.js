@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+const { Schema } = mongoose;
 const blogSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -19,8 +20,8 @@ const blogSchema = new mongoose.Schema({
 
     },
     createdBy: {
-        type: Schema.Type.ObjectId,    // this is the mongoose builtIn Id for user
-        ref: "user",             // taken the reference form model of user ,model/user.js
+        type: Schema.Types.ObjectId,    // this is the mongoose builtIn Id for user
+        ref: "user",             // taken the reference from model of user ,model/user.js
 
     }
 }, { timestamps: true })  // this show default time stamps that ehen the user is created

@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs'); // Make sure to install: npm install bcryptj
 const router = express.Router();
 
 const Users = require("../models/user");
+const Blog = require("../models/blog");
 
 
 
@@ -51,14 +52,18 @@ router.post("/signin", async (req, res) => {
 
 })
 
-router.get("/logout", (req, res) => {
+router.get("/logout", async (req, res) => {
     try {
 
         //clearing the JWT cookie
         res.cookie("token", "", { maxAge: 0 });
 
         // sending just success response
-        res.status(200).render("home");
+        const allBlogs = await Blog.find({});
+        res.status(200).render("home", {
+            user: req.user,
+            blogs: allBlogs,
+        });
 
 
     }

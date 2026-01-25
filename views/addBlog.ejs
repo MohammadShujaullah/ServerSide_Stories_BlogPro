@@ -12,11 +12,25 @@
   <%- include('./partials/navbar') %>
 
     <div class="mt-3">
-      <form>
+      <form method="post" action="/blog" enctype="multipart/form-data">
+
+        <div class="mb-3">
+          <label for="InputFile" class="form-label">Cover Image:-</label>
+          <input type="file" class="form-control,blue" name="coverImage" id="InputFile" aria-describedby="coverImage">
+        </div>
         <div class="mb-3">
           <label for="InputTitle" class="form-label">Title</label>
           <input type="text" class="form-control" name="title" id="InputTitle" aria-describedby="title">
         </div>
+
+        <div class="mb-3">
+          <label for="floatingTextarea">Body</label>
+          <textarea class="form-control" placeholder="Write Something Beautiful here..." id="floatingTextarea"
+            name="body"></textarea>
+
+        </div>
+
+        <div class="mb-3"><button type="submit" class="btn btn-primary">Submit Blog</button></div>
       </form>
     </div>
 
