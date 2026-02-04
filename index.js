@@ -23,6 +23,14 @@ app.use(cookieparsor());                 // it is a middleware
 app.use(checkForAuthenticationCookie("token"));      // ye "token" -  "routes/user.js" se arha ha, jha pr aapne name dia ha token 
 
 
+
+// this middleware is for showing the user name in the navbar when user is logged in
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
+
+
 // this middleware help  to renseer static data in public folder 
 //, that express doesnt allow the static data in public 
 app.use(express.static(path.resolve("./public")));

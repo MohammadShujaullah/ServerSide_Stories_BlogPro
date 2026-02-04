@@ -12,6 +12,7 @@ function createTokenForUser(user) {
     const payload = {
         _id: user._id,
         email: user.email,
+        FullName: user.FullName, // now full name is included , to show when logged in
         profileImageURL: user.profileImageURL,
         role: user.role,
 

@@ -63,7 +63,7 @@ router.get("/add-new", (req, res) => {
 })
 
 router.get("/:id", async (req, res) => {
-    const blog = await Blog.findById(req.params.id).populate("createdBy")
+    const blog = await Blog.findById(req.params.id).populate("createdBy")  //.populate is used for joinning the user collection with blog collection to get the user details who created the blog. it is similar to (join) in sql.
     const comment = await comments.find({ blogId: req.params.id }).populate("createdBy")  // this"comment" is passes to blog.ejs to show the comments to all user.
   
     return res.render("blog", {
