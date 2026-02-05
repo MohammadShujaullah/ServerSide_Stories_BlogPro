@@ -43,7 +43,9 @@ app.use(express.static(path.resolve("./public")));
 
 
 // this mongoDB is for the local host for me , it is hardcoded, but we have to use the env verivble  for that , for production and deployement purpose 
-mongoose.connect(process.env.MONGO_URL).then(console.log("MongoDB connected successfully")).catch((err) => {
+mongoose.connect(process.env.MONGO_URL).then(() => {
+    console.log("MongoDB connected successfully");
+}).catch((err) => {
     console.log("mongoDB not connected! err:", err);
 })
 
