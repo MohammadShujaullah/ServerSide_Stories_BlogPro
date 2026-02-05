@@ -80,19 +80,25 @@ app.use("/blog", blogRouter);
 app.get("/", async (req, res) => {
     try {
         const allBlogs = await Blog.find({});
-        // For Vercel serverless, send JSON response instead of rendering EJS
-        res.json({
-            message: "Server is running 🚀",
+
+        // Render the home page using EJS instead of sending JSON
+        return res.render("home", {
             user: req.user,
             blogs: allBlogs,
         });
     } catch (error) {
         console.error("Error fetching blogs:", error);
-        res.status(500).json({ error: "Internal server error" });
+        // On error, still try to render a graceful page instead of raw JSON
+        return res.status(500).render("home", {
+            user: req.user,
+            blogs: [],
+            error: "Internal server error",
+        });
     }
+});
+
+
+
+app.listen(PORT,()=>{
+    console.log(`Server is running on port ${PORT}`);
 })
-
-
-
-// Export app for Vercel serverless functions
-module.exports = app;
