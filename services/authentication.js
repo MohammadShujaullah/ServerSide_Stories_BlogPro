@@ -1,6 +1,6 @@
 const JWT = require("jsonwebtoken");
 
-const secret = "$uperman@123";
+const secret = process.env.JWT_SECRET;
 
 
 /**the server issues a JWT to the client, allowing the 
