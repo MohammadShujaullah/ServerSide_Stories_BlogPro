@@ -79,11 +79,5 @@ app.get("/", async (req, res) => {
 
 
 
-// we cannot hardcode the port no. as , it become confilict into
-//  it if we have multiple server running on the same port,
-//  so we use env variable for that
-app.listen(PORT, () => {
-    console.log("server is running on the port ", PORT);
-
-
-})
+// Export app for Vercel serverless functions
+module.exports = app;
