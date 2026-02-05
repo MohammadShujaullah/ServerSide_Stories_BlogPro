@@ -1,7 +1,11 @@
+require('dotenv').config();
+
 const express = require("express");
 const path = require("path");
+
+
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const cookieparsor = require("cookie-parser")   // it is a middleware
 
 const mongoose = require("mongoose");
@@ -37,7 +41,9 @@ app.use(express.static(path.resolve("./public")));
 
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/Serversidestories").then(console.log("MongoDB connected successfully")).catch((err) => {
+
+// this mongoDB is for the local host for me , it is hardcoded, but we have to use the env verivble  for that , for production and deployement purpose 
+mongoose.connect(process.env.MONGO_URL).then(console.log("MongoDB connected successfully")).catch((err) => {
     console.log("mongoDB not connected! err:", err);
 })
 
@@ -71,7 +77,11 @@ app.get("/", async (req, res) => {
 
 
 
+// we cannot hardcode the port no. as , it become confilict into
+//  it if we have multiple server running on the same port,
+//  so we use env variable for that
 app.listen(PORT, () => {
     console.log("server is running on the port ", PORT);
+
 
 })

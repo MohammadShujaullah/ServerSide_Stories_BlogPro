@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const commentSchema = new mongoose.Schema({
-    content: {
+const commentSchema = new mongoose.Schema({         // for every schema , mongoose creates the oject id by default
+    content: { 
         type: String,
         require: true,
     },
