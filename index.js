@@ -1,4 +1,7 @@
-require('dotenv').config();
+// Don't load dotenv in Vercel environment
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 
 const express = require("express");
 const path = require("path");
@@ -51,11 +54,17 @@ mongoose.connect(process.env.MONGO_URL).then(() => {
 
 
 
-// SO for server side rendering we use EJS template engine
-// EJS -> Embedded JavaScript Templating    
-app.set("view engine", "ejs");
-
-app.set("views", "./views");
+// Set up EJS for local development but handle differently for Vercel
+if (process.env.VERCEL_ENVIRONMENT === undefined) {
+    // Local environment
+    app.set("view engine", "ejs");
+    app.set("views", "./views");
+} else {
+    // Vercel environment - we'll handle rendering differently
+    const path = require('path');
+    app.set("view engine", "ejs");
+    app.set("views", path.resolve(__dirname, "views"));
+}
 
 
 
@@ -69,12 +78,18 @@ app.use("/blog", blogRouter);
 
 
 app.get("/", async (req, res) => {
-
-    const allBlogs = await Blog.find({});
-    return res.render("home", {
-        user: req.user,
-        blogs: allBlogs,
-    });
+    try {
+        const allBlogs = await Blog.find({});
+        // For Vercel serverless, send JSON response instead of rendering EJS
+        res.json({
+            message: "Server is running 🚀",
+            user: req.user,
+            blogs: allBlogs,
+        });
+    } catch (error) {
+        console.error("Error fetching blogs:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
 })
 
 
