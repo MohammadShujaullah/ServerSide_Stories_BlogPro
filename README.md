@@ -21,19 +21,21 @@ It allows users to create, manage, and explore stories with an elegant, classy i
 ## 📸 Screenshots
 
 ### Home Page
-<img src="public/images/features/Screenshot 2026-03-09 234131.png" alt="Home Page" width="800"/>
+<img src="public/images/features/Screenshot 2026-03-09 234131.png" alt="Home Page" width="650"/>
 
 ### Blog Details & Comments
-<img src="public/images/features/blogg itself.png" alt="Blog Details" width="800"/>
+<img src="public/images/features/blogg itself.png" alt="Blog Details" width="650"/>
 
-<img src="public/images/features/comments.png" alt="Comments Section" width="800"/>
+<img src="public/images/features/comments.png" alt="Comments Section" width="650"/>
+
+<img src="public/images/features/commets2 always.png" alt="Comments Feature" width="650"/>
 
 ### User Interface
-<img src="public/images/features/Screenshot 2026-03-09 234506.png" alt="User Interface" width="800"/>
+<img src="public/images/features/Screenshot 2026-03-09 234506.png" alt="User Interface" width="650"/>
 
-<img src="public/images/features/Screenshot 2026-03-09 234521.png" alt="Add Blog Interface" width="800"/>
+<img src="public/images/features/Screenshot 2026-03-09 234521.png" alt="Add Blog Interface" width="650"/>
 
-<img src="public/images/features/Screenshot 2026-03-09 234612.png" alt="Authentication" width="800"/>
+<img src="public/images/features/Screenshot 2026-03-09 234612.png" alt="Authentication" width="650"/>
 
 ---
 
