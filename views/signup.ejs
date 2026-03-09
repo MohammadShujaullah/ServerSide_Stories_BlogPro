@@ -9,24 +9,28 @@
 
 <body>
     <%- include('./partials/navbar') %>
-        <div class="container  mt-4">
+        <main class="page-shell">
+            <section class="panel" style="max-width:560px;margin:0 auto;">
+                <h2 class="form-title">Create your account</h2>
+                <p class="meta mb-3">Join the community and publish your first story.</p>
 
-            <form action="/user/signup" method="POST">
-                <div class="form-group">
-                    <label for="exampleInputName mt-2">Full Name</label>
-                    <input type="text" class="form-control" name="FullName" id="exampleInputName" placeholder="Enter full name" required>
-                </div>
-                <div class="form-group mt-2">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Enter email" required>
-                </div>
-                <div class="form-group mt-2">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" required>
-                </div>
-                <button type="submit" class="btn btn-primary mt-2" >Sign Up</button>
-            </form>
-        </div>
+                <form action="/user/signup" method="POST">
+                    <div class="form-group">
+                        <label class="form-label" for="exampleInputName">Full Name</label>
+                        <input type="text" class="form-control" name="FullName" id="exampleInputName" placeholder="Enter full name" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="form-label" for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="form-label" for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-classy mt-3">Sign Up</button>
+                </form>
+            </section>
+        </main>
 
         <%- include('./partials/script') %>
 

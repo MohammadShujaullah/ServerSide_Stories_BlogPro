@@ -10,24 +10,32 @@
 <body>
 
   <%- include('./partials/navbar') %>
-    <div class="mt-3 row row-cols-4">
-      <% blogs.forEach(blog=> { %>
-        <div class="col">
-          <div class="card " style="width: 18rem;">
-            <img src="/<%= blog.coverImageURL %>" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">
-                <%= blog.title %>
-              </h5>
+    <main class="page-shell">
+      <section class="hero">
+        <h1>Write. Read. Share timeless stories.</h1>
+        <p>ServerSide Stories is your elegant corner for thoughtful writing and meaningful conversations.</p>
+      </section>
 
-              <a href="/blog/<%=  blog._id %>" class="btn btn-primary">View</a>
-            </div>
-          </div>
-        </div>
-
-        <% }) %>
-
-    </div>
+      <% if (blogs && blogs.length) { %>
+        <section class="card-grid">
+          <% blogs.forEach(blog => { %>
+            <article class="story-card">
+              <img src="/<%= blog.coverImageURL %>" alt="<%= blog.title %>">
+              <div class="card-body">
+                <h5 class="card-title"><%= blog.title %></h5>
+                <a href="/blog/<%= blog._id %>" class="btn btn-classy">Read Story</a>
+              </div>
+            </article>
+          <% }) %>
+        </section>
+      <% } else { %>
+        <section class="panel text-center py-4">
+          <h3 class="form-title">No stories yet</h3>
+          <p class="meta">Start your first blog and make this space alive.</p>
+          <a href="/blog/add-new" class="btn btn-classy mt-2">Create First Blog</a>
+        </section>
+      <% } %>
+    </main>
 
 
     <%- include('./partials/script') %>

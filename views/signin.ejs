@@ -9,21 +9,24 @@
 
 <body>
     <%- include('./partials/navbar') %>
-        <div class="container  mt-4">
+        <main class="page-shell">
+            <section class="panel" style="max-width:560px;margin:0 auto;">
+                <h2 class="form-title">Welcome back</h2>
+                <p class="meta mb-3">Sign in and continue sharing your thoughts.</p>
 
-            <form action="/user/signin" method="POST">
-                
-                <div class="form-group mt-2">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Enter email" required>
-                </div>
-                <div class="form-group mt-2">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" required>
-                </div>
-                <button type="submit" class="btn btn-primary mt-2" >Sign Up</button>
-            </form>
-        </div>
+                <form action="/user/signin" method="POST">
+                    <div class="form-group mt-2">
+                        <label class="form-label" for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="form-label" for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-classy mt-3">Sign In</button>
+                </form>
+            </section>
+        </main>
 
         <%- include('./partials/script') %>
 

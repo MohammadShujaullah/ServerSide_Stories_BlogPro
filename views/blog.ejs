@@ -13,60 +13,74 @@
 
     <%- include('./partials/navbar') %>
 
-        <div class="container mt-3">
-            <h1>
-                <%= blog.title %>
-            </h1>
+        <main class="page-shell">
+            <section class="hero">
+                <h1><%= blog.title %></h1>
+            </section>
 
-            <img src="/<%= blog.coverImageURL %>" width="700px">
-            <pre><%= blog.body %></pre>
+            <section class="panel">
+                <img src="/<%= blog.coverImageURL %>" alt="<%= blog.title %>" class="blog-cover">
+                <div class="blog-body"><%= blog.body %></div>
+            </section>
 
-        </div>
-        <div class="container mt-4">
+            <section class="mt-4">
             <% if (blog.createdBy && blog.createdBy.profileImageURL) { %>
-                <img src="<%= blog.createdBy.profileImageURL %><%= blog.createdBy.profileImageURL.endsWith('.jpg') ? '' : '.jpg' %>"
-                    width="100px" alt="profile">
-                <%= blog.createdBy.FullName %>
+                <div class="author-box">
+                    <img src="<%= blog.createdBy.profileImageURL %><%= blog.createdBy.profileImageURL.endsWith('.jpg') ? '' : '.jpg' %>" alt="profile">
+                    <div>
+                        <div class="fw-bold"><%= blog.createdBy.FullName %></div>
+                        <div class="meta">Author</div>
+                    </div>
+                </div>
                     <% } else { %>
-                        <img src="/images/default_profile_image.jpg" width="100px" alt="profile">
-                        <p>User Info Not Available</p>
+                        <div class="author-box">
+                            <img src="/images/default_profile_image.jpg" alt="profile">
+                            <p class="mb-0">User info not available</p>
+                        </div>
                         <% } %>
-        </div>
+            </section>
 
 
 
 
-        <div class="container mt-3">
+        <section class="panel mt-4">
 
             
 
             <% if (locals.user) { %>
-                <h1>Comments</h1>
+                <h3 class="form-title">Comments</h3>
                 <form action="/blog/comment/<%= blog._id %>" method="POST">
 
                     <div class="form-group mt-2">
-                        <label for="exampleInputcomment">Comment</label>
+                        <label class="form-label" for="exampleInputcomment">Comment</label>
                         <input type="text" class="form-control" name="content" id="exampleInputcomment"
                             placeholder="Enter comment" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    <button type="submit" class="btn btn-classy mt-3">Submit Comment</button>
                 </form>
                 <% } %>
-        </div>
+        </section>
 
-        <div class="container mt-3">
-            <h2>All Comments</h2> <h3><%= (comment.length) %></h3>
+        <section class="panel mt-3">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h3 class="form-title mb-0">All Comments</h3>
+                <span class="btn-soft"><%= comment.length %> total</span>
+            </div>
            
-            <% comment.forEach(comment => { %>
-                <div style="border: 1px solid #ddd; padding: 10px; margin: 10px 0;">
-                    <img src="<%= comment.createdBy.profileImageURL %><%= comment.createdBy.profileImageURL.endsWith('.jpg') ? '' : '.jpg' %>"
-                        width="100px" alt="profile">
-                    <h6><%= comment.createdBy.FullName %></h6>
-                    <p><%= comment.content %></p>
-                </div>
-            <% }) %>
-        </div>
+            <div class="comment-stack">
+                <% comment.forEach(comment => { %>
+                    <div class="comment-item">
+                        <img src="<%= comment.createdBy.profileImageURL %><%= comment.createdBy.profileImageURL.endsWith('.jpg') ? '' : '.jpg' %>" alt="profile">
+                        <div>
+                            <h6 class="mb-1"><%= comment.createdBy.FullName %></h6>
+                            <p class="mb-0"><%= comment.content %></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+        </main>
 
 
         <%- include('./partials/script') %>

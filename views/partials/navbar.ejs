@@ -1,14 +1,14 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme=dark>
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">ServerSide_Stories</a>
+<nav class="navbar navbar-expand-lg app-nav">
+  <div class="container-fluid" style="width:min(1200px,94vw);">
+    <a class="navbar-brand brand-font fw-bold" href="/">ServerSide Stories</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav align-items-lg-center gap-lg-2">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <% if (locals.user) { %>
           <li class="nav-item">
@@ -17,7 +17,7 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-             <%=locals.user.FullName %>
+              <%= locals.user.FullName %>
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
@@ -29,7 +29,7 @@
               <a class="nav-link" href="/user/signin">Signin</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/user/signup">Add Account</a>
+              <a class="nav-link" href="/user/signup">Create Account</a>
             </li>
 
             <%} %>
@@ -43,7 +43,9 @@
 </nav>
 
 <% if (locals.error) { %>
-  <div class="alert alert-danger" role="alert">
+  <div class="container mt-3" style="width:min(1200px,94vw);">
+    <div class="alert alert-danger" role="alert">
     <%= locals.error %>
+    </div>
   </div>
   <% } %>
