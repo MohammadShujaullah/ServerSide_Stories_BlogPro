@@ -28,6 +28,8 @@ It allows users to create, manage, and explore stories with an elegant, classy i
 
 <img src="public/images/features/commets2 always.png" alt="Comments Feature" width="650"/>
 
+<img src="public/images/features/Screenshot 2026-03-10 001854.png" alt="Additional Feature" width="650"/>
+
 ### User Interface
 <img src="public/images/features/Screenshot 2026-03-09 234506.png" alt="User Interface" width="650"/>
 
