@@ -26,8 +26,6 @@ It allows users to create, manage, and explore stories with an elegant, classy i
 ### Blog Details & Comments
 <img src="public/images/features/blogg itself.png" alt="Blog Details" width="650"/>
 
-<img src="public/images/features/comments.png" alt="Comments Section" width="650"/>
-
 <img src="public/images/features/commets2 always.png" alt="Comments Feature" width="650"/>
 
 ### User Interface
